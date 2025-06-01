@@ -17,6 +17,21 @@ const serverConfig = isDockerCompose
           changeOrigin: true,
           rewrite: (path) => path.replace("/dev", "/v1")
         }
+      },
+      // Filesystem options
+      fs: {
+        strict: false, // Setting this to false can help with file system event handling in Docker.
+                       // It makes Vite less strict about file serving paths and can improve watcher reliability.
+      },
+      // Watch options
+      watch: {
+        usePolling: true,
+        interval: 300,        // Slightly faster polling interval
+        binaryInterval: 500,  // Slightly faster polling for binary files
+        // We are relying on Vite's default behavior to watch `publicDir`.
+        // `usePolling: true` applies to this default watching.
+        // `fs.strict = false` might further help ensure events are picked up.
+        // No explicit `ignored` or `paths` here to avoid overriding default `publicDir` watch logic.
       }
     }
   : {
@@ -56,5 +71,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1600,
   },
   base: "/",
+  // Ensure publicDir is explicitly set. Vite watches this directory by default.
+  publicDir: 'public',
   server: serverConfig,
 });
