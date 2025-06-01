@@ -4,19 +4,25 @@
 
 <script setup>
 const { VITE_APP_TITLE } = import.meta.env;
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { computed, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { useFullscreen } from "@vueuse/core";
 import { useAuthStore } from "../../../store/authStore";
 import { useDialogStore } from "../../../store/dialogStore";
+import http from "../../../router/axios";
 
 import UserSettings from "../../dialogs/UserSettings.vue";
 import ContributorsList from "../../dialogs/ContributorsList.vue";
 
 const route = useRoute();
+const router = useRouter();
 const authStore = useAuthStore();
 const dialogStore = useDialogStore();
 const { isFullscreen, toggle } = useFullscreen();
+
+const isSearchVisible = ref(false);
+const searchQuery = ref('');
+const isLoading = ref(false);
 
 const linkQuery = computed(() => {
 	const { query } = route;
@@ -24,6 +30,77 @@ const linkQuery = computed(() => {
 	const cityQuery = query.city ? `&city=${query.city}` : '';
 	return `${indexQuery}${cityQuery}`;
 });
+
+const handleSearch = async () => {
+  if (searchQuery.value.trim()) {
+    try {
+      isLoading.value = true;
+      
+      // 1. 獲取所有儀表板列表
+      const dashboardResponse = await http.get('dashboard/');
+      const { taipei, metrotaipei } = dashboardResponse.data.data;
+      
+      // 2. 合併所有需要查詢的 index
+      const allIndexes = [
+        ...taipei.map(d => ({ index: d.index, city: 'taipei' })),
+        ...metrotaipei.map(d => ({ index: d.index, city: 'metrotaipei' }))
+      ];
+      
+      // 3. 對每個 index 發送請求並收集結果
+      const searchResults = [];
+      for (const { index, city } of allIndexes) {
+        try {
+          const response = await http.get(`/dashboard/${index}`);
+          const components = response.data.data;
+          
+          // 4. 搜尋符合條件的組件
+          const matchingComponents = components.filter(component => 
+            component.name.toLowerCase().includes(searchQuery.value.trim().toLowerCase())
+          );
+          
+          if (matchingComponents.length > 0) {
+            searchResults.push({
+              index,
+              city,
+              components: matchingComponents
+            });
+          }
+        } catch (error) {
+          console.error(`Error fetching dashboard ${index}:`, error);
+        }
+      }
+      
+      // 5. 如果找到結果，導航到第一個匹配的儀表板
+      if (searchResults.length > 0) {
+        const firstResult = searchResults[0];
+        router.push({
+          path: '/dashboard',
+          query: { 
+            index: firstResult.index,
+            city: firstResult.city
+          }
+        });
+      } else {
+        dialogStore.showNotification('info', '未找到符合的儀表板');
+      }
+      
+      searchQuery.value = '';
+      isSearchVisible.value = false;
+    } catch (error) {
+      console.error('Search failed:', error);
+      dialogStore.showNotification('fail', '搜尋失敗，請稍後再試');
+    } finally {
+      isLoading.value = false;
+    }
+  }
+};
+
+const toggleSearch = () => {
+  isSearchVisible.value = !isSearchVisible.value;
+  if (!isSearchVisible.value) {
+    searchQuery.value = '';
+  }
+};
 </script>
 
 <template>
@@ -74,7 +151,32 @@ const linkQuery = computed(() => {
         地圖交叉比對
       </router-link>
     </div>
+
     <div class="navbar-user">
+
+      <div class="navbar-search">
+        <button
+          class="search-button"
+          @click="toggleSearch"
+        >
+          <span>search</span>
+        </button>
+      </div>
+	  
+	  <div v-if="isSearchVisible" class="search-input-container">
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="搜尋儀表板..."
+            @keyup.enter="handleSearch"
+            @blur="isSearchVisible = false"
+            ref="searchInput"
+          />
+          <div v-if="isLoading" class="search-loading">
+            <span>loading</span>
+          </div>
+        </div>
+
       <button
         v-if="!(authStore.isMobileDevice && authStore.isNarrowDevice)"
         class="hide-if-mobile"
@@ -84,7 +186,8 @@ const linkQuery = computed(() => {
           isFullscreen ? "fullscreen_exit" : "fullscreen"
         }}</span>
       </button>
-      <div class="navbar-user-info">
+      
+	  <div class="navbar-user-info">
         <button><span>info</span></button>
         <ul>
           <li>
@@ -237,6 +340,64 @@ const linkQuery = computed(() => {
 		display: flex;
 		align-items: center;
 
+		.navbar-search {
+			position: relative;
+			margin-right: var(--font-m);
+
+			.search-button {
+				display: flex;
+				align-items: center;
+				padding: 2px 4px;
+				border-radius: 4px;
+				transition: background-color 0.25s;
+
+				&:hover {
+					background-color: var(--color-complement-text);
+				}
+
+				span {
+					font-family: var(--font-icon);
+					font-size: calc(var(--font-l) * var(--font-to-icon));
+				}
+			}
+
+			.search-input-container {
+				position: absolute;
+				right: 0;
+				top: 100%;
+				margin-top: 8px;
+				z-index: 100;
+
+				input {
+					width: 250px;
+					padding: 8px 12px;
+					border: 1px solid var(--color-border);
+					border-radius: 4px;
+					background-color: var(--color-component-background);
+					color: var(--color-text);
+					font-size: var(--font-m);
+
+					&:focus {
+						outline: none;
+						border-color: var(--color-highlight);
+					}
+				}
+
+				.search-loading {
+					position: absolute;
+					right: 12px;
+					top: 50%;
+					transform: translateY(-50%);
+					
+					span {
+						font-family: var(--font-icon);
+						font-size: calc(var(--font-m) * var(--font-to-icon));
+						animation: spin 1s linear infinite;
+					}
+				}
+			}
+		}
+
 		li a,
 		button {
 			display: flex;
@@ -327,4 +488,16 @@ const linkQuery = computed(() => {
 		}
 	}
 }
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
 </style>
+
+
+

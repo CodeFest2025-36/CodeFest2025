@@ -21,6 +21,39 @@ const emits = defineEmits([
 	"fly"
 ]);
 
+// 大數據集檢測
+const isLargeDataSet = computed(() => {
+	return props.chart_config.categories && props.chart_config.categories.length > 12
+})
+
+// 計算初始寬度
+const initialWidth = computed(() => {
+	const WIDTH_PER_ITEM = 32  // 熱力圖格子寬度，調整為32像素
+	const itemCount = props.chart_config.categories ? props.chart_config.categories.length : 10;
+	return itemCount * WIDTH_PER_ITEM;
+});
+
+const widthValue = ref(initialWidth.value);
+
+// 計算初始高度 - 新增
+const initialHeight = computed(() => {
+	const HEIGHT_PER_ITEM = 32  // 熱力圖格子高度，設定為32像素
+	const seriesCount = props.series ? props.series.length : 5;
+	return seriesCount * HEIGHT_PER_ITEM + 100; // 加100px給軸標籤等空間
+});
+
+const heightValue = ref(initialHeight.value);
+
+// 轉換為帶單位的字串供 ApexCharts 使用
+const chartWidth = computed(() => {
+	return isLargeDataSet.value ? `${widthValue.value}px` : "100%";
+});
+
+// 新增高度計算
+const chartHeight = computed(() => {
+	return `${heightValue.value}px`;
+});
+
 const heatmapData = computed(() => {
 	let output = {};
 	let highest = 0;
@@ -56,35 +89,58 @@ const heatmapData = computed(() => {
 });
 
 const colorScale = computed(() => {
-	const ranges = props.chart_config.color.map(
-		(el, index) => ({
-			to: Math.floor(
-				(heatmapData.value.highest / props.chart_config.color.length) *
-					(props.chart_config.color.length - index)
-			),
-			from:
-				Math.floor(
-					(heatmapData.value.highest /
-						props.chart_config.color.length) *
-						(props.chart_config.color.length - index - 1)
-				) + 1,
-			color: el,
+	// 固定使用0~25範圍，切分為配置顏色的數量，由淺到深
+	const FIXED_MAX = 25;
+	const COLOR_SEGMENTS = props.chart_config.color ? props.chart_config.color.length : 5;
+	const SEGMENT_SIZE = FIXED_MAX / COLOR_SEGMENTS; // 每段的數值範圍
+	
+	const ranges = props.chart_config.color ? props.chart_config.color.map(
+		(color, index) => ({
+			to: Math.floor(SEGMENT_SIZE * (index + 1)),
+			from: Math.floor(SEGMENT_SIZE * index) + 1,
+			color: color,
 		})
-	);
+	) : [];
+	
+	// 為25以上的數值添加最深的顏色
+	if (props.chart_config.color && props.chart_config.color.length > 0) {
+		ranges.push({
+			to: 9999, // 設定一個很大的數值作為上限
+			from: 26,
+			color: props.chart_config.color[props.chart_config.color.length - 1], // 使用配置中最後一個（最深的）顏色
+		});
+	}
+	
+	// 數值為0使用透明/淺灰色（無顏色）
 	ranges.unshift({
 		to: 0,
 		from: 0,
-		color: "#444444",
+		color: "rgba(200, 200, 200, 0.2)", // 淺灰色透明
 	});
+	
 	return ranges;
 });
 
 const chartOptions = ref({
 	chart: {
 		stacked: true,
-		toolbar: {
-			show: false,
+		zoom: {
+			allowMouseWheelZoom: false,
 		},
+		toolbar: isLargeDataSet.value 
+			? {
+				show: true,
+				tools: {
+					download: false,
+					pan: false,
+					reset: "<p>" + "重置" + "</p>",
+					zoomin: false,
+					zoomout: false,
+				}
+			  }
+			: {
+				show: false,
+			}
 	},
 	dataLabels: {
 		distributed: true,
@@ -161,10 +217,8 @@ const chartOptions = ref({
 	},
 	yaxis: {
 		max: function (max) {
-			if (!props.chart_config.categories) {
-				return max;
-			}
-			return heatmapData.value.highest;
+			// 如果數據最高值超過25，則使用實際最高值，否則使用25
+			return Math.max(25, heatmapData.value.highest);
 		},
 	},
 });
@@ -206,6 +260,24 @@ function handleDataSelection(_e, _chartContext, config) {
 		selectedIndex.value = null;
 	}
 }
+
+// 尺寸控制函數
+function increaseWidth() {
+	widthValue.value += 100;
+	heightValue.value += 80; // 同時調整高度
+}
+
+function decreaseWidth() {
+	if (widthValue.value > 200) {
+		widthValue.value -= 100;
+		heightValue.value -= 80; // 同時調整高度
+	}
+}
+
+function resetWidth() {
+	widthValue.value = initialWidth.value;
+	heightValue.value = initialHeight.value; // 重置高度
+}
 </script>
 
 <template>
@@ -217,9 +289,33 @@ function handleDataSelection(_e, _chartContext, config) {
       <h5>總合</h5>
       <h6>{{ heatmapData.sum }} {{ chart_config.unit }}</h6>
     </div>
+    <div
+      v-if="isLargeDataSet"
+      class="heatmapchart-toolbar"
+    >
+      <p
+        class="heatmapchart-toolbar-item"
+        @click="increaseWidth"
+      >
+        <span>add</span>
+      </p>
+      <p
+        class="heatmapchart-toolbar-item"
+        @click="decreaseWidth"
+      >
+        <span>remove</span>
+      </p>
+      <p
+        class="heatmapchart-toolbar-item reset"
+        @click="resetWidth"
+      >
+        重置
+      </p>
+    </div>
     <VueApexCharts
-      width="100%"
-      height="360px"
+      :key="chartWidth"
+      :width="chartWidth"
+      :height="chartHeight"
       type="heatmap"
       :options="chartOptions"
       :series="series"
@@ -230,6 +326,14 @@ function handleDataSelection(_e, _chartContext, config) {
 
 <style scoped lang="scss">
 .heatmapchart {
+	overflow: auto;
+	position: relative;
+	height: 100%;
+
+	.vue-apexcharts {
+		justify-content: unset !important;
+	}
+
 	&-title {
 		display: flex;
 		justify-content: center;
@@ -246,6 +350,38 @@ function handleDataSelection(_e, _chartContext, config) {
 			color: var(--color-complement-text);
 			font-size: var(--font-m);
 			font-weight: 400;
+		}
+	}
+
+	&-toolbar {
+		position: sticky;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		background-color: var(--color-component-background);
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 4px;
+		margin-bottom: 8px;
+
+		&-item {
+			cursor: pointer;
+			font-size: var(--font-s);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			span {
+				text-align: center;
+				font-family: var(--font-icon);
+				font-size: var(--font-ms);
+				padding: 2px;
+			}
+
+			&.reset {
+				color: var(--color-highlight)
+			}
 		}
 	}
 }

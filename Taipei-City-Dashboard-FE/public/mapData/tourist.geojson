@@ -1,0 +1,809 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5484925,25.1023554 ]
+   },
+   "properties": {
+   "scenicspot":"國立故宮博物院",
+   "district":"士林區",
+   "num":1874994
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5248102,25.0724118 ]
+   },
+   "properties": {
+   "scenicspot":"市立美術館",
+   "district":"中山區",
+   "num":571315
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5329556,25.0794115 ]
+   },
+   "properties": {
+   "scenicspot":"國民革命忠烈祠",
+   "district":"中山區",
+   "num":548470
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5111994,25.0315698 ]
+   },
+   "properties": {
+   "scenicspot":"國立歷史博物館",
+   "district":"中正區",
+   "num":307359
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5164742,25.0962609 ]
+   },
+   "properties": {
+   "scenicspot":"國立臺灣科學教育館",
+   "district":"士林區",
+   "num":2980381
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5120687,25.0322925 ]
+   },
+   "properties": {
+   "scenicspot":"國立臺灣藝術教育館",
+   "district":"中正區",
+   "num":395709
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5809857,24.9985635 ]
+   },
+   "properties": {
+   "scenicspot":"市立動物園",
+   "district":"文山區",
+   "num":2624973
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.514951,25.0972351 ]
+   },
+   "properties": {
+   "scenicspot":"市立兒童新樂園",
+   "district":"士林區",
+   "num":1977642
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5183633,25.0958186 ]
+   },
+   "properties": {
+   "scenicspot":"市立天文科學教育館",
+   "district":"士林區",
+   "num":1156493
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5253585,25.0202507 ]
+   },
+   "properties": {
+   "scenicspot":"客家文化主題公園",
+   "district":"中正區",
+   "num":1435451
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5501199,25.0506849 ]
+   },
+   "properties": {
+   "scenicspot":"小巨蛋",
+   "district":"松山區",
+   "num":1136022
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5602452,25.0400306 ]
+   },
+   "properties": {
+   "scenicspot":"國立國父紀念館",
+   "district":"信義區",
+   "num":1286710
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5291642,25.0913793 ]
+   },
+   "properties": {
+   "scenicspot":"士林官邸公園",
+   "district":"士林區",
+   "num":2950477
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5303543,25.0723739 ]
+   },
+   "properties": {
+   "scenicspot":"林安泰古厝民俗文物館",
+   "district":"中山區",
+   "num":230213
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5401001,25.1592121 ]
+   },
+   "properties": {
+   "scenicspot":"陽明公園[陽明山]",
+   "district":"北投區",
+   "num":6436602
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5201832,25.035502 ]
+   },
+   "properties": {
+   "scenicspot":"國立中正紀念堂",
+   "district":"中正區",
+   "num":4040564
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5303215,25.013284 ]
+   },
+   "properties": {
+   "scenicspot":"臺北自來水園區",
+   "district":"中正區",
+   "num":597640
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4998654,25.0373106 ]
+   },
+   "properties": {
+   "scenicspot":"龍山寺",
+   "district":"萬華區",
+   "num":1247984
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4708333,25.1188889 ]
+   },
+   "properties": {
+   "scenicspot":"關渡自然公園",
+   "district":"北投區",
+   "num":98729
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5189766,25.0508047 ]
+   },
+   "properties": {
+   "scenicspot":"台北當代藝術館",
+   "district":"大同區",
+   "num":205933
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.50715,25.1365694 ]
+   },
+   "properties": {
+   "scenicspot":"北投溫泉博物館",
+   "district":"北投區",
+   "num":378560
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5245933,25.0731071 ]
+   },
+   "properties": {
+   "scenicspot":"圓山別莊",
+   "district":"中山區",
+   "num":26349
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5638158,25.0375241 ]
+   },
+   "properties": {
+   "scenicspot":"台北探索館",
+   "district":"信義區",
+   "num":244420
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5057526,25.1371098 ]
+   },
+   "properties": {
+   "scenicspot":"凱達格蘭文化館",
+   "district":"北投區",
+   "num":177833
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5645389,25.033976 ]
+   },
+   "properties": {
+   "scenicspot":"台北101",
+   "district":"信義區",
+   "num":12748808
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5577484,25.0829319 ]
+   },
+   "properties": {
+   "scenicspot":"美麗華百樂園摩天輪",
+   "district":"中山區",
+   "num":164403
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5161793,25.0727623 ]
+   },
+   "properties": {
+   "scenicspot":"臺北市孔廟",
+   "district":"大同區",
+   "num":390131
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5087651,25.1369293 ]
+   },
+   "properties": {
+   "scenicspot":"梅庭",
+   "district":"北投區",
+   "num":122678
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5155703,25.0731088 ]
+   },
+   "properties": {
+   "scenicspot":"大龍峒保安宮",
+   "district":"大同區",
+   "num":1353563
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.599042,25.0526926 ]
+   },
+   "properties": {
+   "scenicspot":"臺北流行音樂中心",
+   "district":"南港區",
+   "num":572251
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5243691,25.0851242 ]
+   },
+   "properties": {
+   "scenicspot":"臺北表演藝術中心",
+   "district":"士林區",
+   "num":1803975
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5068592,25.0420139 ]
+   },
+   "properties": {
+   "scenicspot":"西門紅樓",
+   "district":"萬華區",
+   "num":4631214
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5381154,25.154278 ]
+   },
+   "properties": {
+   "scenicspot":"草山行館",
+   "district":"北投區",
+   "num":35550
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5332629,25.0105988 ]
+   },
+   "properties": {
+   "scenicspot":"寶藏巖",
+   "district":"中正區",
+   "num":445855
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5319248,25.1042763 ]
+   },
+   "properties": {
+   "scenicspot":"芝山文化生態綠園",
+   "district":"士林區",
+   "num":90675
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5077445,25.0428337 ]
+   },
+   "properties": {
+   "scenicspot":"西門町商圈",
+   "district":"萬華區",
+   "num":28769832
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5606383,25.0438366 ]
+   },
+   "properties": {
+   "scenicspot":"松山文創園區",
+   "district":"信義區",
+   "num":9804846
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5293583,25.0440698 ]
+   },
+   "properties": {
+   "scenicspot":"華山1914文化創意產業園區",
+   "district":"中正區",
+   "num":4199213
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5094593,25.0318511 ]
+   },
+   "properties": {
+   "scenicspot":"台北植物園",
+   "district":"中正區",
+   "num":1567335
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4067196,24.8711487 ]
+   },
+   "properties": {
+   "scenicspot":"三峽區大板根森林溫泉度假村",
+   "district":"三峽區",
+   "num":156795
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.3693485,24.9345042 ]
+   },
+   "properties": {
+   "scenicspot":"三峽區歷史文物館",
+   "district":"三峽區",
+   "num":56962
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.3698182,24.9337605 ]
+   },
+   "properties": {
+   "scenicspot":"三峽老街",
+   "district":"三峽區",
+   "num":886469
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4300344,25.1608457 ]
+   },
+   "properties": {
+   "scenicspot":"八里左岸公園",
+   "district":"八里區",
+   "num":2837700
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4362748,25.174176 ]
+   },
+   "properties": {
+   "scenicspot":"前清淡水關稅務司官邸",
+   "district":"淡水區",
+   "num":59262
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.7874553,25.0489711 ]
+   },
+   "properties": {
+   "scenicspot":"十分瀑布",
+   "district":"平溪區",
+   "num":1617890
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.7128281,24.9344651 ]
+   },
+   "properties": {
+   "scenicspot":"坪林茶業博物館",
+   "district":"坪林區",
+   "num":195711
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4495139,25.0596333 ]
+   },
+   "properties": {
+   "scenicspot":"宏匯廣場",
+   "district":"中和區",
+   "num":6404399
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.3598,24.9417 ]
+   },
+   "properties": {
+   "scenicspot":"新北市客家文化園區",
+   "district":"三峽區",
+   "num":554003
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4048561,25.1568739 ]
+   },
+   "properties": {
+   "scenicspot":"新北市立十三行博物館",
+   "district":"八里區",
+   "num":549083
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.352032,24.949251 ]
+   },
+   "properties": {
+   "scenicspot":"新北市立鶯歌陶瓷博物館",
+   "district":"鶯歌區",
+   "num":523055
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.8596365,25.1061358 ]
+   },
+   "properties": {
+   "scenicspot":"新北市立黃金博物園區",
+   "district":"瑞芳區",
+   "num":942799
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.6111702,25.2464241 ]
+   },
+   "properties": {
+   "scenicspot":"朱銘美術館",
+   "district":"金山區",
+   "num":51300
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.3648336,25.0706472 ]
+   },
+   "properties": {
+   "scenicspot":"林口三井Outlet",
+   "district":"林口區",
+   "num":8631602
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4546023,25.0110814 ]
+   },
+   "properties": {
+   "scenicspot":"林本源園邸",
+   "district":"板橋區",
+   "num":2733374
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.8616333,25.1218765 ]
+   },
+   "properties": {
+   "scenicspot":"水湳洞遊客中心",
+   "district":"瑞芳區",
+   "num":521500
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.614898,25.2398272 ]
+   },
+   "properties": {
+   "scenicspot":"法鼓山世界佛教教育園區",
+   "district":"金山區",
+   "num":123608
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4121084,25.1830092 ]
+   },
+   "properties": {
+   "scenicspot":"淡水漁人碼頭",
+   "district":"淡水區",
+   "num":1584334
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4329366,25.1754267 ]
+   },
+   "properties": {
+   "scenicspot":"淡水紅毛城",
+   "district":"淡水區",
+   "num":421692
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.4414592,25.1689094 ]
+   },
+   "properties": {
+   "scenicspot":"淡水金色水岸",
+   "district":"淡水區",
+   "num":3802200
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.3703176,24.9337902 ]
+   },
+   "properties": {
+   "scenicspot":"清水祖師廟",
+   "district":"三峽區",
+   "num":639480
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.429389,25.179218 ]
+   },
+   "properties": {
+   "scenicspot":"滬尾炮臺",
+   "district":"淡水區",
+   "num":46629
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.3655989,24.7861403 ]
+   },
+   "properties": {
+   "scenicspot":"烏來風景特定區",
+   "district":"烏來區",
+   "num":2026679
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.8278067,25.0866541 ]
+   },
+   "properties": {
+   "scenicspot":"猴硐煤礦園區",
+   "district":"瑞芳區",
+   "num":1014952
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.843515,25.1096949 ]
+   },
+   "properties": {
+   "scenicspot":"瑞芳風景特定區",
+   "district":"瑞芳區",
+   "num":3545080
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5365043,24.9559849 ]
+   },
+   "properties": {
+   "scenicspot":"碧潭風景特定區",
+   "district":"新店區",
+   "num":2252458
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.5511233,24.8488907 ]
+   },
+   "properties": {
+   "scenicspot":"雲仙樂園",
+   "district":"烏來區",
+   "num":130560
+   }
+ },
+ {
+   "type": "Feature",
+   "geometry": {
+      "type": "Point",
+      "coordinates":  [ 121.3501723,24.9513778 ]
+   },
+   "properties": {
+   "scenicspot":"鶯歌老街",
+   "district":"鶯歌區",
+   "num":524989
+   }
+ }
+]
+}
